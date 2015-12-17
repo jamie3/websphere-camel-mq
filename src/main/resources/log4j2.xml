@@ -1,0 +1,18 @@
+<Configuration status="WARN">
+  <Appenders>
+  	<RollingFile name="RollingFile" fileName="/tmp/iib.log" filePattern="/tmp/logs/$${date:yyyy-MM}/iib-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="100 KB"/>
+      </Policies>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="RollingFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
