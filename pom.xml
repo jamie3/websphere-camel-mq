@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>websphere-camel-mq</groupId>
 	<artifactId>websphere-camel-mq</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1</version>
 	<packaging>war</packaging>
 
 	<properties>
@@ -19,13 +19,8 @@
 			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-stream</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
+			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
@@ -38,6 +33,11 @@
 			<artifactId>jms</artifactId>
 			<version>${mq.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.5</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -47,10 +47,18 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <version>2.6</version>
+		        <configuration>
+		        	<warSourceDirectory>${basedir}/WebContent</warSourceDirectory>
+		        </configuration>
+		      </plugin>
 		</plugins>
 	</build>
 
